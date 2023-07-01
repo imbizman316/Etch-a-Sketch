@@ -21,11 +21,16 @@ const erasebutton = document.createElement('button');
 erasebutton.classList.add('button');
 erasebutton.innerText = 'ERASE';
 
+//Add audio
+const audio = document.createElement('audio');
+audio.src = "sound.wav";
+
 //set mode variable
 let mode = 'default';
 
 body.appendChild(header);
 body.appendChild(original_container);
+body.appendChild(audio);
 header.appendChild(button);
 header.appendChild(paintbutton);
 header.appendChild(erasebutton);
@@ -98,11 +103,19 @@ function eraseGrid() {
 
 function changeColor(){
 
+    const audioplay = document.querySelector('audio');
+
     if (mode === "default") {
         this.style.background = 'red';
+        if (!audioplay) return; //stop the function from running all together
+        audioplay.currentTime = 0; //rewind to the start;
+        audioplay.play();
     } 
     else if (mode === "erase") {
         this.style.background = 'white';
+        if (!audioplay) return; //stop the function from running all together
+        audioplay.currentTime = 0; //rewind to the start;
+        audioplay.play();
     }
     
 }
