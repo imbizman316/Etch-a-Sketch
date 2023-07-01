@@ -35,10 +35,17 @@ body {
 .column {
 
     border: black solid 2px;
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     flex: 1;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.column:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
